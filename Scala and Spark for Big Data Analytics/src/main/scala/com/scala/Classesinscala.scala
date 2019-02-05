@@ -1,4 +1,4 @@
-package com.scala.test
+package com.scala
 
 // Anything that is declared as an object cannot be initiated
 // The basic syntax of an object is as follows

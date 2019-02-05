@@ -1,4 +1,5 @@
-package com.scala.test
+package com.scala
+
 /*
 ? what is an companion object
  */
