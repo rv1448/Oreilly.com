@@ -1,8 +1,8 @@
 package com.spark.scala
 
 object array {
-
-  def apply(i:Int) : String = s"this is the value: $i"
+  def apply2(i:Int) : String = s"this is2 the value: $i"
+  def apply(i:Int) : Int = i
 
   def main(args: Array[String]): Unit = {
 
@@ -20,7 +20,9 @@ object array {
     var list = List(1,"3")
 
   println(s"calling appy(4) ${array.apply(4)}")
-    println(s"calling appy(4) ${array(4)}")
+//    println(s"calling appy(42) ${array(4)}")
+    val i:Int = array(4)
+    println(i)
   }
 
 }
