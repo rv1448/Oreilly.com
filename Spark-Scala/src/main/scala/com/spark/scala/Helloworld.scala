@@ -1,12 +1,37 @@
 package com.spark.scala
 
 object Helloworld {
-  def noargs() = "no args"
+  def noargs(a:Unit):Int  = {
+    println("no args")
+    return 99
+  }
+
+
+  def #~!(a: Int):Int ={
+    return 9
+  }
+
 // liternal value of unit is ()
-  //
+  // Difference Between Function and scala
+//  http://jim-mcbeath.blogspot.com/2009/05/scala-functions-vs-methods.html
  def main(args: Array[String]): Unit = {
   println("Hello World")
-   noargs
+//   println(/*noargs()*/)
+    val any: Any = Helloworld
+    println(any)
+
+    println(#~!(6));
+
+//    var k = if(math.random > 0.5){
+//      1
+//    }
+//    else 2
+//    println(k)
+
+    var k = if(math.random > 0.5) 1 else 2;
+
+    println(k)
  }
+
 
 }
