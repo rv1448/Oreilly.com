@@ -13,7 +13,15 @@ object Immutable_List {
 
 //    Immutable_List.shownames(names)
 //    x => x.equals("smitha")
-    println(s"names . head : ${names.head}")
-    println(s"names . Tail : ${morenames.tail}")
+//    println(s"names . head : ${names.head}")
+//    println(s"names . Tail : ${morenames.head}")
+//    println(names)
+//    println(morenames)
+    println(morenames.tail)
+    println(morenames.tail.tail)
+
+    println(s"names . Tail : ${morenames.tail.tail}")
+//    names . Tail : alice
+//    names . Tail : List(bob, fred, akhil, smitha, joe)
   }
 }
