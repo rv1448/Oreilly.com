@@ -3,6 +3,8 @@ package com.spark.scala
 object Immutable_List {
   def shownames2(names:List[String]):Unit = names match {
     case Nil => ()
+    case List(a,b) => println(s"List has two elements $a and $b ")
+    case h::t => println(s"head > $h");shownames2(t)
   }
 
   def shownames(names:List[String]):Unit = names.foreach( println(_));
@@ -20,11 +22,12 @@ object Immutable_List {
 //    println(s"names . Tail : ${morenames.head}")
 //    println(names)
 //    println(morenames)
-    println(morenames.tail)
-    println(morenames.tail.tail)
-
-    println(s"names . Tail : ${morenames.tail.tail}")
-//    names . Tail : alice
-//    names . Tail : List(bob, fred, akhil, smitha, joe)
-  }
+//    println(morenames.tail)
+//    println(morenames.tail.tail)
+//
+//    println(s"names . Tail : ${morenames.tail.tail}")
+////    names . Tail : alice
+////    names . Tail : List(bob, fred, akhil, smitha, joe)
+      println(shownames2(names.tail))
+    }
 }
