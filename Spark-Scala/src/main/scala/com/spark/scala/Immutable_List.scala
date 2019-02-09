@@ -1,6 +1,9 @@
 package com.spark.scala
 
 object Immutable_List {
+  def shownames2(names:List[String]):Unit = names match {
+    case Nil => ()
+  }
 
   def shownames(names:List[String]):Unit = names.foreach( println(_));
   def main(args: Array[String]): Unit = {
