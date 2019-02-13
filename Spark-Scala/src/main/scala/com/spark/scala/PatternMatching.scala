@@ -1,5 +1,7 @@
 package com.spark.scala
 
+import scala.util.matching.Regex.Match
+
 
 case class user(name:String,Age:Int)
 object PatternMatching {
@@ -14,6 +16,9 @@ object PatternMatching {
 //    val p = show(k.get("ind"))
 //    val m = show(k.get("india"))
 //    println(p)
+
+    val a@List() = Nil
+
 
     showuser(4) match {
       case Some(user) => println(user)
@@ -30,6 +35,32 @@ object PatternMatching {
   def showuser(x:Int):Option[user] = users.get(x)
 
 
+  def replicate[A] (count:Int, Item:A):List[A] = count match {
+    case 0 => Nil
+    case _ => Item :: replicate(count - 1, Item);
+
+    // Pattern match to get the double and treple based on whether number is odd or even
+  }
+      val result:List[Int] = List(1,2,3,5,6).map{
+        case x:Int if x %2 == 0 => 2 *x
+        case x:Int if x%2 != 0 => 3 *x
+      }
+
+      println(result)
 
 
 }
+
+
+object Even {
+  def unapply(arg: Int): Option[Int] = {
+    if (arg%2 == 0) Some(arg) else None
+  }
+}
+
+object Odd {
+  def unapply(arg: Int): Option[Int] = {
+    if (arg%2 != 0) Some(arg) else None
+  }
+}
+
