@@ -39,10 +39,6 @@ object Functiontest {
   val colorpages =(index:Int) => println(s"the colorpages document is $index")
     val Bwpages =(index:Int) => println(s"the bwpages document is $index")
 
-
-
-
-
 }
 
 case class document(numofpages:Int, typeofdoc:String)
