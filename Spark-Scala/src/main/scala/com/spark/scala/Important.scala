@@ -16,12 +16,36 @@ object Important {
     * MATCH EXPRESSIONS
     * can Match on TYPE and VALUE and ERROR or NOT
     *
+    * 2 Types of iterators
+    * Value binding and Numeric Range
+    *
+    *HIGH ORDER FUNCTIONS
+    * foreach map flatmap
     */
+val daysinweek = List("mon","tues","wed","thurs","fri","sat","sun")
+
 
   def main(args: Array[String]): Unit = {
 //    println("12a".asInstanceOf[Long])
 //    println("12a".toLong)
 //    println(123.getClass)
+
+    /**
+      * THis is value binding example
+      */
+    val listnew = for(day <- daysinweek) yield {
+      day match {
+        case "mon" => "This is crazy monday"
+        case _ => {day}
+      }
+    }
+
+    println(listnew)
+
+
+
+
+
    def g( l:Int,  b:Int):Double = {
 //      val l,b = 10;
       3.14 * l * b;
@@ -33,7 +57,7 @@ object Important {
     }
     m(1,2)
 
-    val dayofweek = "tuesday"
+    val dayofweek = "tuesay"
 
 //    val result = dayofweek match {
 //      case a:String => println(s"This is a string $a")
@@ -41,7 +65,9 @@ object Important {
 
 
     def f():Unit= dayofweek match {
-      case a:String => println(s"This is a string $a")
+//      case a:String => println(s"This is a string $a")
+      case "tuesday" => println("This is a string tuesday")
+      case something => println(s"this is something $something")
     }
 
     f()
