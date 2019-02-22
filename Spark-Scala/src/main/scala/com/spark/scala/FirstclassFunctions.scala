@@ -19,7 +19,9 @@ package com.spark.scala
   * method can take in function
   *
   * Function named are re-usable blocks
-  * Mehods all same but in the
+  * Methods are associated with class
+  *
+  *
   *
   */
 
@@ -41,6 +43,20 @@ object FirstclassFunctions {
 
   }
 
+  def getarea(r:Double) = {
+    3.14 * r * r
+  }
+
+  val y : (Double) => Double = getarea  /* This is for converting a method to a function */
+  val p : (Double) => Double = getarea
+
+  val m = getarea _ /* THis is for converting method to a afunction using a ETA operator */
+
+  val PI = 3.14
+
+  def pie():Double = PI
+
+  val piefunc:() => Double = pie
 
   /***
     * Difference between FUnction and Methods
