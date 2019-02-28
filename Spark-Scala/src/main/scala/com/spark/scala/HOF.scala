@@ -43,9 +43,9 @@ object HOF {
 //    println( factorial(5))
 
 //    println(findtheindex(Array(1,2,3,4,5,6,75,5,7,9),(x:Int) => if (x ==9) true else false))
-    println(comparision(Array(1,2,3,4,5,10,9),(x:Int, y:Int) => if (x < y) true else false))
+    println(comparision(Array(1,2,3,4,5,10,9),(x:Int, y:Int) => x < y ))
 
-    println(Array(1,2,3,4,5,6,9).length)
+    println(Array(1,2,3,4,5,10,9).length)
 
   }
 
