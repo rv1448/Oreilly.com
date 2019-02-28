@@ -1,7 +1,4 @@
-package com.spark.scala
-
-// _ can only be used once
-//
+package com.scala.primer;
 
 object LambdaExpressions {
   val x = (y:Int) => {y*y}

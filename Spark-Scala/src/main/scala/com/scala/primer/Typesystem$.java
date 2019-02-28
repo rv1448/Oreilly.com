@@ -1,4 +1,4 @@
-package com.spark.scala
+package com.scala.primer;
 
 /**
   * In scala all values are from classes

@@ -1,8 +1,4 @@
-package com.spark.scala
-
-import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.log4j._
-
+package com.scala.primer;
 
 object Sparkhello {
   def main(args: Array[String]) = {

@@ -1,10 +1,4 @@
-package com.spark.scala
-
-import java.io.PrintWriter
-
-import scala.io.Source
-
-//
+package com.scala.primer;
 
 object Textfile {
   def main(args: Array[String]) = {

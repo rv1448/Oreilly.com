@@ -1,4 +1,4 @@
-package com.spark.scala
+package com.scala.primer;
 
 object MethodvsFunction {
 
@@ -12,7 +12,7 @@ object MethodvsFunction {
   def squareperimeter(side:Int):Int = {
     4 * side
   }
- 
+
   val areafunc = (lf:Int, bf:Int) => {
     3.14 * lf * bf
   }:Double

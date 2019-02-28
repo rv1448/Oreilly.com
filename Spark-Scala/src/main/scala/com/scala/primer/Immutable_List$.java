@@ -1,4 +1,4 @@
-package com.spark.scala
+package com.scala.primer;
 
 object Immutable_List {
   def shownames2(names:List[String]):Unit = names match {

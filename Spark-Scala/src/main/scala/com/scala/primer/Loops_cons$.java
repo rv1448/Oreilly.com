@@ -1,4 +1,4 @@
-package com.spark.scala
+package com.scala.primer;
 
 object Loops_cons {
   def main(args: Array[String]): Unit = {

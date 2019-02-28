@@ -1,4 +1,5 @@
-package com.spark.scala
+package com.scala.primer;
+
 // Function are named expressions
 // expression can be assigned val and variable and passed into functino and returned from function
 // Takes a function or retruns a function

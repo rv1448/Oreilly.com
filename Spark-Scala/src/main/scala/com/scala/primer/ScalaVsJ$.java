@@ -1,4 +1,4 @@
-package com.spark.scala
+package com.scala.primer;
 
 object ScalaVsJ {
 
@@ -94,11 +94,3 @@ object ScalaVsJ {
   }
 
 }
-
-
-/*
-object forloop {
-  def main(args: Array[String]): Unit = {
-    println("hello world")
-  }
-}*/ /* Cannot define multiple objects in a same file */

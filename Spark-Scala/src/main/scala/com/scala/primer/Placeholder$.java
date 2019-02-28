@@ -1,4 +1,5 @@
-package com.spark.scala
+package com.scala.primer;
+
 // Applies to methods and functions
 // IN higher order function that takes function as an input
 // instead of defining the function that is sent as parameter, we can use the anonymous function

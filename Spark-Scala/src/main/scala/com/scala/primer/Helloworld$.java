@@ -1,4 +1,4 @@
-package com.spark.scala
+package com.scala.primer;
 
 object Helloworld {
   def noargs(a:Unit):Int  = {
