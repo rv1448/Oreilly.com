@@ -31,7 +31,10 @@ object WeatherAnalysis {
     } .toArray
 
     source.close()
-    println(data.length)
-    data.take(5).foreach(println)
+//    println(data.length)
+//    data.take(5).foreach(println)
+
+    val maxtemp = data.map(x => x.tmax).max
+    println(data.filter(_.tmax == maxtemp).mkString(","))
   }
 }
