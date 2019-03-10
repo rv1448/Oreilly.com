@@ -11,6 +11,7 @@ object Printerapp {
   def printparticularpages(doc: Document,pages:Int *) = {
     for(i <- pages)
       if (i <= doc.Totalpages)
+
         println(s"Printing page $i")
       else println(s"couldn't find page $i")
   }
