@@ -21,14 +21,14 @@
 	- Inserting a video into database and metadata or catalog
 	- Sending commands using command line
 		- Mobile application
-			-HTTP commands to application in cloud
-			-PUT command from mobile to insert video
+			- HTTP commands to application in cloud
+			- PUT command from mobile to insert video
 				- using multipart body
 				- content-type in the header
-			-GET command to fetch or retreive
+			- GET command to fetch or retreive
 				- using query params
 				- each video has its own URL path
-			-HTTP response
+			- HTTP response
 				- is it 200
 				- was it able to store the video 
 				- body can have data/ Text coming back
@@ -44,16 +44,16 @@
 	- Service built on HTTP that may follow rest Methodologies
 
 * What is REST ?
-	-/video/1 access to the video
-	-/video/1/duration - access resource in finer and finer granua
-	-/video - All video
+	- /video/1 access to the video
+	- /video/1/duration - access resource in finer and finer granua
+	- /video - All video
 	- URL addressing that follows hierarchy starting wider
 * HTTP polling
-	-cient initiates the conversation
-	-cant have the server push the data
-	-The client at regular intervals to sent request to the server
-	-wasting server resources/Network
-	-Adaptive polling
+	- cient initiates the conversation
+	- cant have the server push the data
+	- The client at regular intervals to sent request to the server
+	- wasting server resources/Network
+	- Adaptive polling
 * Web sockets - Newer HTTP based protocal
 	- once the websocket connection is established
 	- client and server can talk continously
