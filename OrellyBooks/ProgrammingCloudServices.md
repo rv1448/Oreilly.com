@@ -70,15 +70,85 @@
 	- Only works small amounts of data
 
 * what are servelets ?
+	- Every request from browser is routed to one of the servlets in the web container
+	- A servelet is a java object 
+	- Servlet has methods for Doget DoPost
+	- router decides which servelets serve which request using WEB.xml
 
+* Routing and web.xml
+	- a request with path and then servlet
+	- first part is used declare servlet name and servlet class
+	- second part is routing - servlet needs to be loaded for the path
+``` xml	
+<servlet>
+	<servlet-name>video</servlet-name>
+	<servlet-name>org.company.VideoServlet</servlet-name>
+</servlet>
 
-```java
-protected void doPost(HttpServeletRequest req, HttpServletResponse res){
-String name = req.getParameter("name");
-String url = req.getParameter("url");
+<servlet-mapping>
+	<servlet-name>video</servlet-name>
+	<url-pattern>/video</url=pattern>
+<servlet-mapping>
+```
 
+``` java
+public class VideoServlet extends HttpServlet{
+
+	private List<video> = ArrayList<Video>();
+	@Override
+	protected @void doGet(HttpServletRequest req, HttpServletResponse resp){
+	resp.setCOntentType("text/plain");	
+	PrinterWriter SendtoClient = resp.getWriter();
+	for(Video v: this.videos){
+		sendToClient.write(v.getName()+""+v.getUrl()+"\n")
+	}
+		
+	}
+
+	protected void doPost(HttpServeletRequest req, HttpServletResponse res){
+	String name = req.getParameter("name");
+	String url = req.getParameter("url");
+	String durationstr = req.getParameter("duration");
+	
+	resp.setContentType("text/plain");
+	/****
+	* Parse the parameters
+	*****/
+	if(pararmeters are not set ){
+	resp.sendError(400);
+	resp.getWriter().write("missing [name,duration,url]");
+	}
+	else {
+	video v = new Video(name,url,duration);
+	videos.add(v);
+	resp.getWriter().write("video added");
+	}
+	}
 }
 ```
+
+* Java Annotations
+	- Method to store a video which is protected method
+
+* HTTP Body to  Data Marshelling
+	- Its a way of extracting information from incoming request and building an object
+	- Servlet looking at the request and taking key-value pair to build an object
+	- Convert key value pair into JSON/XML before sending it back client
+	- Data mapping - Building objects from the data
+
+* The Sprig Dispatcher Servlet
+	- Request to normal servlet involves extract params from request, validation, construct objs with params and then do work.
+	- Instead spring gives dispatcher servlets
+	- less data marshelling to extract parameters
+	- Dispatcher servlet; It allows to registers one or more controllers
+	- Controller can have simple methods update balance
+	- Routing from Dispatcher servlet to the controller can be done using either XML or Java annotations
+	- before invoking the method it extract the parameter value for the method it needs to execute
+	- Automatic data marshelling
+* Intro to spring controller
+	- Are simple objects
+
+
 
 
 
