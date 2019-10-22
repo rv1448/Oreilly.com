@@ -57,4 +57,13 @@ public void close()
 	- Subclass of outputstream use these methods to write data onto particular media
 	- ByteArrayoutput stream writes to expandable bytearray
 	- outputstream fundamental write method takes a integer from 0 to 255 as an argument and write byte to the output stream
+	- write method take a int and write only first eight bits are placed on the wire
+	- if a int over 255 is passed to the write method, the least signiifcant byte of the number is written to the wire
+* InputStream
+	- The basic method of InputStream is read(). This method reads a single byte of data form the input stream and returns 
+	it as int from 0 to 255. End of stream by returning -1. THe read() method awaits and blocks execution of code that follows
+	it until a byte of data is available and ready to be read.
 
+* Thread
+
+	- Either subclass thread and override its run method or Implement runnable interface
