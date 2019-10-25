@@ -65,5 +65,39 @@ public void close()
 	it until a byte of data is available and ready to be read.
 
 * Thread
-
 	- Either subclass thread and override its run method or Implement runnable interface
+	- To start a Thread
+``` java
+Thread t = new Thread();
+t.start()
+```	
+	- To give a thread something to do, you either subclass the Thread class and override its run() method
+	or implement the runnable interface and pass the Runnable object to the Thread constructor
+	- Subclass Thread whose run() method calculates a 256 bit SHA-2 message digest for a specified file.
+``` java
+@Override
+public void run(){
+FileinputStream fn = new FileinputStream(input);
+MessageDigest sha = MessageDigest.getInstance("SHA-256");
+DigestinputStream din = new DigestInputStream(in,sha);
+while(din.read()!=-1);
+din.close();
+byte[] digest = sha.digest()
+StringBuilder ss = new Stringbuilder(filename);
+ss.append(":");
+ss.append(hexadecimalnumber);
+println(ss)
+}
+
+Thread t = new DigestThread(file)
+t.start()
+```
+	- The run method is fixed, you can't pass arguements to it or return values from it.
+	- Getting information out of a thread back into orginal calling thread is tricky
+
+* Returning information from a Thread
+	- The run() and start() method of a thread don't return any values
+	- main thread passes the execution before initiated thread completes
+* Callback
+	- The 
+
