@@ -148,9 +148,64 @@ public class VideoServlet extends HttpServlet{
 * Intro to spring controller
 	- Are simple objects
 
+* Spring controller Walk Through
+	- Servlet container
+	- Java Object @controller
+``` java
+@controller
+public class VideoSvc implements VideoSvcApi{
+	private List<Video> videos = new ArrayList<Video>();
+	
+	@RequestMapping(value=VIDEO_SVC_PATH, method=RequestMethod.POST)
+	public @RequestBody boolean addVideo(RequestBody video v){
+		return videos.add(v)
+		}
+}
+
+@configuration
+expressing configuration data in a class for
+@EnableWebMvc
+Dispatcher servlet
+@Componentscan
+@EnableAutoConfiguration
 
 
+```
+	
 
+* Request param
+	- @RequestMapping to have dispatcher servlet 
+	- @RequestParam that can be attached individual parameters
+
+* Request path
+	- /search/a path itself 
+	- @requestmapping("/search/{str}")
+	- HTTP message converter will take request params and using
+	@requestbody annotation initiate an object
+
+* Handling multipart data
+	- videoservicecontroller
+	- new method returns boolean upload video
+	- raw data marked as @RequestParam can handle multipart file uplad
+	the type of the data is marked as multipartfile
+	- Stream it from client to disk and memory is skipped
+	- get inputstream from the file defined in the method signature
+* Generating responses
+	-@Responsebody
+* JSON object marshelling
+	- Spring open source library to convert json to object and viceversa
+
+* Spring Boot architechture
+	- we create series of controller objects that have various methods invoked webcontainer 
+	- so we create webcontainer with dispatcher servlet that spring provides to route request to respective controller
+	- Custom Setup
+		-web container needs to have routing information web.xml
+		-dispatcher servlet uses annotations to route request to various containers
+		-web container needs to be setup usally tomcat
+		-Spring boot can be configured appropriately using application.java
+			- Define controllers autodiscovery
+			- this application as main method and initiate spring boot application using springboot.run(application.java)
+		- Setup the container embedded, discover controllers, dispatcher servlet, 
 
 
 
