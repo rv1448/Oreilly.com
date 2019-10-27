@@ -28,4 +28,7 @@ Technologies
 			- Both collection and streaming both ASYNC
 * Protocal
 
-	
+* websocket is a protocal for bidirectional communications over HTTP
+	- The initial handshake is done using HTTP
+	- Then communication is followed on TCP
+	- WebSocketClient	

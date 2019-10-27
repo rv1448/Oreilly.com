@@ -208,4 +208,6 @@ Dispatcher servlet
 		- Setup the container embedded, discover controllers, dispatcher servlet, 
 
 
+* Spring Dependency Injection
+* Spring Data Respository
 
