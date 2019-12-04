@@ -22,5 +22,26 @@ CMD
 ```
 docker build -t 
 
+fedora, centos, redhat - rpm packages  -- yum install
+ubuntu, debian - debian packages -- apt-get
 
+redhat -- yum install
 
+** Syntax for Docker run
+``` bash
+##
+docker run [OPTS] image [COMMAND] [ARGS]
+
+## Getting into the container
+docker exec -it tender_dijkstra mysql -u root
+
+##	docker run options for the mysql client		
+docker run -d -it -p 3309:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=true mysql
+--name= -> this is will set the name 
+-e -> environment variable
+-p will map all the ports with respective container ports 
+-P true will map all the ports 
+-rm will remove the container
+
+```
+![https://docker-curriculum.com](helpfull)
