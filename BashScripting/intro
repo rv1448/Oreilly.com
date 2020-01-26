@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cp ./messages ./messages.old
+
+> ./messages
+
+echo 'hello world'

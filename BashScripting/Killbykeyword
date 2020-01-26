@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+read KILLWORD 
+
+kill $(ps aux| grep $KILLWORD| grep -v grep| awk '{print $2}')
+
+exit 0
+

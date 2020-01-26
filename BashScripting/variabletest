@@ -1,0 +1,18 @@
+#!/bin/bash
+
+
+
+
+if [ -z $1 ]
+then 
+        echo provide filename
+        read filename
+else
+        filename=$@
+
+fi
+
+for i in $filename
+do
+    echo $i
+done

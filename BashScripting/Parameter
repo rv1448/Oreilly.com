@@ -1,0 +1,12 @@
+#!/bin/bash 
+
+
+
+
+echo "This is the $1 parameter"
+echo "This is the $2 parameter"
+echo "The name of the scripts is $0
+echo "This is all arguements $@"
+echo "Total number of arguements $#"
+
+"

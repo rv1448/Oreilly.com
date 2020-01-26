@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+LOGFILE=/Users/rahulvangala/Desktop/Oreilly.com/BashScripting
+
+
+cp $LOGFILE/messages $LOGFILE/messages.old
+
+cat /dev/null > $LOGFILE/messages
+
+exit 0
+
+
+
