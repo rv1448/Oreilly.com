@@ -13,9 +13,7 @@ public class ListNum {
         }
 
     }
-
-
-
+ 
     public static void main(String[] args) {
         List<Number> nums = new ArrayList<Number>();
         List<Integer> ints = Arrays.asList(1, 2);
