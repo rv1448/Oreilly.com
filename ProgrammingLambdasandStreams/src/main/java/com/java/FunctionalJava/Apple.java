@@ -1,5 +1,6 @@
 package com.java.FunctionalJava;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -15,7 +16,7 @@ interface  ApplePredicate<Apple> {
 interface ApplePrint<T>{
     void print(T t);
 }
-public class Apple{
+public class Apple implements Comparable<Apple> {
     float weight;
     String name;
     Color color;
@@ -72,5 +73,11 @@ public class Apple{
                 ", name='" + name + '\'' +
                 ", color=" + color +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Apple o) {
+        return this.weight == o.weight ? 0 : (this.weight < o.weight ? -1: 1);
+
     }
 }
