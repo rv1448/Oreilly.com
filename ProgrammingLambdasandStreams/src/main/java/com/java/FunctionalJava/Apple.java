@@ -9,13 +9,6 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 
-interface  ApplePredicate<Apple> {
-    boolean test(Apple a);
-}
-
-interface ApplePrint<T>{
-    void print(T t);
-}
 public class Apple implements Comparable<Apple> {
     float weight;
     String name;
