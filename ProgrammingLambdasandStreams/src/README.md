@@ -7,6 +7,10 @@
   }
   /* " ? extends E" means that it ok to add 
   ```
-* 
+  
+## Comparator
+## Functions
+
+`package java.util.Function`
   
   
