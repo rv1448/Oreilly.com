@@ -38,4 +38,14 @@ Lambda Expression == anonymous functions, methods without declared names
 
 `package java.util.Function`
   
-  
+## Predicate
+
+```java
+package java.util.function.Predicate<T>;
+/* Interface */
+@FunctionalInterface
+
+public interface Predicate<T>{
+ Boolean test(T t);
+}
+```

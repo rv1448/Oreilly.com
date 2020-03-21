@@ -3,10 +3,16 @@ import static java.lang.System.out;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Predicate;
+import java.util.function.*;
+import java.util.stream.Collectors;
 
+interface StringPredicate<T>{
+    boolean test(T t);
+}
 
-
+interface StringFunction<T,R>{
+    R accept(T t);
+}
 public class Appletest {
 
     public static void main(String[] args) {
@@ -43,5 +49,35 @@ public class Appletest {
         Runnable r = () -> out.println("Thread Name"+Thread.currentThread().getName());
         r.run();
 
+        List<String> strpred = Arrays.asList(
+                "Jim",
+                "Jerry",
+                "Mathew",
+                "Simoncole" );
+        out.println(stringfilter(strpred, s -> s.length() > 5));
+        out.println(stringfunction(strpred, s -> s.length()));
     }
+
+
+    public static  <T> List<T> stringfilter(List<T> llstring, StringPredicate<T> predstring){
+        List<T> ll = new ArrayList<>();
+        for (T t: llstring){
+            if(predstring.test(t)){
+                ll.add(t);
+
+            }
+        }
+        return ll;
+    }
+
+
+    public static <T, R> List<R> stringfunction(List<T> ll, StringFunction<T,R> func){
+        List<R> lr = new ArrayList<>();
+        for(T t: ll){
+            lr.add( func.accept(t));
+        }
+        return lr;
+    }
+
+
 }
