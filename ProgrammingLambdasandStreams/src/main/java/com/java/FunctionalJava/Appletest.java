@@ -11,7 +11,7 @@ public class Appletest {
 
     public static void main(String[] args) {
         List<Apple> basket = Arrays.asList(
-                new Apple(10,"Apple1", Color.PINK),
+                new Apple(10,"Apple1",Color.PINK),
                 new Apple(7,"Apple1", Color.YELLOW),
                 new Apple(6,"Apple1", Color.RED),
                 new Apple(4,"Apple1", Color.WHITE),
@@ -38,6 +38,10 @@ public class Appletest {
                 out.println(s);
             }
         });
+        basket.sort(Apple.SORT_BY_WEIGHT);
+
+        Runnable r = () -> out.println("Thread Name"+Thread.currentThread().getName());
+        r.run();
 
     }
 }

@@ -1,3 +1,9 @@
+## Expression & Statements blocks
+Expression consists of variable, operators and Literals. 
+???
+
+
+
 ## GENERICS
 
 * Wildcard with Extends
@@ -18,10 +24,15 @@ a natural ordering for a class.__,which allows objects of that class
 to be sorted automatically. The following table summarizes some of more 
 important java classes that implement Comparable. 
  
-| Month    | Assignee |
-| Month    | Assignee |
-| Month    | Assignee |
-| Month    | Assignee |
+## Lambda Expression
+
+They let you represent a behaviour or passcode in concise way.
+A lambda expression can be understood as a concise representation of an 
+anonymous function that can be passed around. 
+ 
+Lambda Expression == anonymous functions, methods without declared names
+
+
 ## Comparator
 ## Functions
 

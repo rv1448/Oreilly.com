@@ -1,18 +1,30 @@
 package com.java.FunctionalJava;
 
-import java.io.InputStream;
+
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
 
 
 public class Apple implements Comparable<Apple> {
     float weight;
     String name;
     Color color;
+
+    final static Comparator<Apple> SORT_BY_WEIGHT = new Comparator<Apple>(){
+        @Override
+        public int compare(Apple a1, Apple a2){
+            System.out.println("Comparator1 Executed");
+            return a1.weight == a2.weight ? 0 : (a1.weight < a2.weight ?-1 : +1);
+        }
+    };
+
+    final static Comparator<Apple> SORT_BY_WEIGHT2 = ( Apple a1, Apple a2) -> {
+        System.out.println("Comparator2 Executed");
+        return  a1.weight == a2.weight ? 0 : (a1.weight < a2.weight ?-1 : +1);
+    };
+
 
     public Apple(float weight, String name, Color color) {
         this.weight = weight;
