@@ -1,8 +1,8 @@
 package com.java.FunctionalJava;
 import static java.lang.System.out;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import static java.util.Comparator.comparing;
+
+import java.util.*;
 import java.util.function.*;
 import java.util.stream.Collectors;
 
@@ -18,11 +18,31 @@ public class Appletest {
     public static void main(String[] args) {
         List<Apple> basket = Arrays.asList(
                 new Apple(10,"Apple1",Color.PINK),
-                new Apple(7,"Apple1", Color.YELLOW),
-                new Apple(6,"Apple1", Color.RED),
-                new Apple(4,"Apple1", Color.WHITE),
-                new Apple(2,"Apple1", Color.YELLOW)
+                new Apple(70,"Apple2", Color.YELLOW),
+                new Apple(100,"Apple13", Color.RED),
+                new Apple(47,"Apple143", Color.WHITE),
+                new Apple(59,"Apple1558", Color.YELLOW),
+                new Apple(81,"Apple2008", Color.ORANGE),
+                new Apple(59,"Apple19912", Color.BURGANDE),
+                new Apple(19,"Apple41231", Color.YELLOW),
+                new Apple(29,"Apple991289123", Color.PINK)
         );
+        out.println("Apple Sorted by Weight -- START");
+        Collections.sort(basket,
+                (Apple a1, Apple a2) ->
+                { return  Float.compare(a1.weight,a2.weight)
+                        & a1.name.compareTo(a2.name);}
+        );
+        out.println(basket);
+        Collections.sort(basket,
+                (Apple a1, Apple a2) ->
+                { return  Float.compare(a1.weight,a2.weight)
+                         ;}
+        );
+
+        out.println(basket);
+        out.println("Apple Sorted by Weight -- END");
+
         ApplePredicate<Apple> p123 = new ApplePredicate<Apple>() {
             @Override
             public boolean test(Apple apple) {
