@@ -12,8 +12,7 @@ RUN make /app
 CMD python /app/app.py
 
 FROM mysql:5.5.45
-
-
+```
 ```
 	- Each command is a layer
 	- Each layer is Read only except top one
@@ -27,8 +26,15 @@ docker history image-name
 	- R/O - read only
 	- R/W - read write
 	- UNION file system service
-	- CGROUP and NAMESPACE 
+	- CGROUP and NAMESPACE
 	- multiple containers can share access to the same underlying base layer and yet have their own data
 	- docker build -t {IMAGENAME:tag the docker file}
 	- docker images
-	- 
+	-
+```
+
+## Container Under the Hood
+
+- what does "Container" mean to you ?
+ -
+ -

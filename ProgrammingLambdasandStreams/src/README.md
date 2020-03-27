@@ -28,9 +28,13 @@ important java classes that implement Comparable.
 
 They let you represent a behaviour or passcode in concise way.
 A lambda expression can be understood as a concise representation of an 
-anonymous function that can be passed around. 
+anonymous function the can be passed around. 
  
 Lambda Expression == anonymous functions, methods without declared names
+Signature of the abstract method of the functional interface 
+describes the lambda expression. 
+
+Abstract method in functional interface is a function descriptor
 
 
 ## Comparator
@@ -49,3 +53,24 @@ public interface Predicate<T>{
  Boolean test(T t);
 }
 ```
+
+## Consumer
+Consumer interface defines an abstract method named accept
+that takes an object of generic type and return void. 
+
+```java
+import java.util.function.Consumer;
+@FunctionalInterface
+public interface Consumer<T>{
+    
+}
+```
+
+## Function
+interface defines an abstract method named apply that takes an object of generic type T 
+as input and returns R. 
+```java
+@FunctionalInterface
+public interface Function<T, R>{
+
+}```

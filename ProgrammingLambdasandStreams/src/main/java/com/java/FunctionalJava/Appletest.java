@@ -3,6 +3,7 @@ import static java.lang.System.out;
 import static java.util.Comparator.comparing;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.*;
 import java.util.stream.Collectors;
 
@@ -13,6 +14,11 @@ interface StringPredicate<T>{
 interface StringFunction<T,R>{
     R accept(T t);
 }
+
+interface intStringPredicate{
+    boolean test(String i) throws ClassCastException;
+}
+
 public class Appletest {
 
     public static void main(String[] args) {
