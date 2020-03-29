@@ -36,5 +36,6 @@ docker history image-name
 ## Container Under the Hood
 
 - what does "Container" mean to you ?
- -
- -
+
+-
+-

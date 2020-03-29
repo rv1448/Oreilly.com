@@ -1,8 +1,5 @@
 package com.java.FunctionalJava;
 
-import jdk.management.resource.internal.inst.AbstractPlainDatagramSocketImplRMHooks;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiPredicate;
@@ -17,7 +14,6 @@ public class FunctionalMethodRef {
 
     public static boolean BipredicateTest(List<Apple> basket,Apple app)
     {
-//    BiPredicate<List<Apple>, Apple> bifunc = (list, t) ->   (list.contains(t)) ? true: false;
         BiPredicate<List<Apple>, Apple> bifunc = (list, t) ->   list.contains(t);
         BiPredicate<List<Apple>, Apple> bifunc2 = List::contains;
     return  bifunc.test(basket,app);
