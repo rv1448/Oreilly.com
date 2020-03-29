@@ -5,14 +5,42 @@ Expression consists of variable, operators and Literals.
 
 
 ## GENERICS
+Java Generics are invariant. Example if a method accepts List<Number> we cannot
+pass List<Integer> to the method.<br>
 
-* Wildcard with Extends
-    ```java
+reference variable have two types of information. One is type of reference variable
+and the generics it holds. The generic information is compile time only. 
+
+Generics is associated with the variable and not the object.
+
+__Reason:__
+-   List<Integer> listnum = new ArrayList<>();
+-   List liobject = listnum;
+Above statements are legal, we can add objects to liobject. lets say we are iterating
+List of Integer through objects added can cause class cast exception. 
+
+what does List< ? extends Number> mean: 
+Number is the upper limit. and you pass List of Integer, Double, Float, Number to the methods.
+you cannot add elements to the collection with extends because if you adding integer, it could be of list Double or float.
+
+
+ 
+```java
     interface Collection<E>{
   public boolean addAll(Collection< ? extends E> c);
   }
-  /* " ? extends E" means that it ok to add 
+/* 
+? extends E" E is the upper limit 
+you can add any elements of type E or any subtype. 
+
+*/
   ```
+ 
+
+  
+  
+  
+  
 ## Object Ordering
 A list l may be sorted as follows 
    `Collections.sort(l)` 
@@ -35,6 +63,8 @@ Signature of the abstract method of the functional interface
 describes the lambda expression. 
 
 Abstract method in functional interface is a function descriptor
+
+## TYPE CHECKING, TYPE INFERENCE, AND RESTRICTIONS
 
 
 ## Comparator

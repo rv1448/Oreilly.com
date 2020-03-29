@@ -12,6 +12,18 @@ public class Apple implements Comparable<Apple> {
     String name;
     Color color;
 
+    public float getWeight() {
+        return weight;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
     final static Comparator<Apple> SORT_BY_WEIGHT = new Comparator<Apple>(){
         @Override
         public int compare(Apple a1, Apple a2){

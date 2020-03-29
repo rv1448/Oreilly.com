@@ -7,6 +7,8 @@ public class FunctionTest {
         boolean test(int i);
     }
 
+
+
     public static boolean integertest(integerFunction i , int k){
         return i.test(k);
     }
