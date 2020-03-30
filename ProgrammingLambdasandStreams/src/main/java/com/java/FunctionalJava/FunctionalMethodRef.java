@@ -1,8 +1,13 @@
 package com.java.FunctionalJava;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.function.BiFunction;
 import java.util.function.BiPredicate;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import static java.lang.System.out;
+import static java.util.stream.Collectors.toList;
 
 public class FunctionalMethodRef {
     public static List<Apple> sorting(List<Apple> basket){
@@ -24,6 +29,14 @@ public class FunctionalMethodRef {
         return  bifunc.test(basket,app);
     }
 
+    public static List<String> filtersortedApples(List<Apple> basket, Predicate<Apple> p){
+        return basket.stream()
+                .filter(p)
+                .sorted(Comparator.comparing(t -> t.getWeight()))
+                .map(t -> t.getName())
+                .collect(toList());
+    }
+
     public static void main(String[] args) {
 
         FunctionalMethodRef test = new FunctionalMethodRef();
@@ -41,9 +54,13 @@ public class FunctionalMethodRef {
 
         System.out.println(test.sorting(basket));
 
-        System.out.println(test.BipredicateTest(basket, new Apple(10,"Apple1",Color.PINK)
+        System.out.println(BipredicateTest(basket, new Apple(10,"Apple1",Color.PINK)
         ,List::contains));
+        Map<String, TriFunction<Float,String,Color, Apple>> stringarray = new HashMap<>();
+        stringarray.put("app1",(w,n,c) -> new Apple(w,n,c));
 
+        stringarray.get("app1").apply(81f,"Apple2008", Color.ORANGE);
+        out.println(test.filtersortedApples(basket,app -> app.getWeight()> 20));
     }
 
 

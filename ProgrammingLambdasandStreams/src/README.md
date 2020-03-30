@@ -103,4 +103,43 @@ as input and returns R.
 @FunctionalInterface
 public interface Function<T, R>{
 
-}```
+}
+```
+##STREAM 
+Lazily evaluated
+Internal iteration
+Multithreaded optimization by compiler
+
+## FILTERING STREAM
+> Filtering with Predicate
+Stream interface has filter method
+```java 
+import java.util.stream.Stream;2
+Stream<T> filter(Predicate<? super T>)
+```
+> Filtering Unique Elements
+
+```java 
+import java.util.stream.Stream
+Stream<T> distinct()`
+```
+
+## SLICING A STREAM
+
+> Slicing using Predicate "takeWhile" and "dropWhile"
+
+Java 9 new default method in Stream interface "takeWhile" returns Stream<T>. 
+Takes Predicate as the input
+```java
+/* default takeWhile(Predicate< ? super T> predicate){
+}
+*/
+```
+
+> Truncating a Stream "limit(n)"
+> Skipping a Stream "skip(n)"
+
+
+## Flattening Streams
+Applying a Function to each element of the stream.
+ 
