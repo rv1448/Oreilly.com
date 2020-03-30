@@ -4,7 +4,9 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.lang.System.out;
 
@@ -59,9 +61,11 @@ public class DishTest {
                 .flatMap(i -> a2.stream().map(j -> new int[]{i,j} ))
                 .filter( t -> (t[0]+t[1]) == 3)
                 .forEach(t ->out.println(t[0]+" "+t[1]) );
+        BinaryOperator<Integer> biop = (integer, integer2) -> Integer.sum(integer,integer2);
 
-
-
+        a1.stream()
+                .mapToInt(t -> t)
+                .sum();
 
     }
 }
