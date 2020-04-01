@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 
 public class TransactionTest {
@@ -41,6 +42,26 @@ public class TransactionTest {
                 .map(t-> t.getValue())
                 .max( (t,u) -> t.compareTo(u) );
         System.out.println(k.get());
+
+
+   List<Integer> number = Arrays.asList(10,9,8263,81,23,123,18);
+   number.stream().mapToInt(t -> t).reduce(0,Integer::sum);
+   number.stream().mapToInt(t -> t).max();
+
+
+
+
+           
+
+
+
+
+
+
+
+
+
+      
 //
     }
 }

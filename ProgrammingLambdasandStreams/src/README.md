@@ -141,5 +141,8 @@ Takes Predicate as the input
 
 
 ## Flattening Streams
-Applying a Function to each element of the stream.
- 
+Applying a Function to each element of the stream. <br>
+
+| OPERATION | TYPE | RETURN TYPE | TYPE/FUNCTIONAL INTERFACE REQUIRED | FUNCTION DESCRIPTOR |
+|---------:|----:|-----------:|-----------------------------------:|--------------------:|
+|filter |
