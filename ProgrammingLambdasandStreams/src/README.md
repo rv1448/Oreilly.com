@@ -143,6 +143,22 @@ Takes Predicate as the input
 ## Flattening Streams
 Applying a Function to each element of the stream. <br>
 
-| OPERATION | TYPE | RETURN TYPE | TYPE/FUNCTIONAL INTERFACE REQUIRED | FUNCTION DESCRIPTOR |
+| __OPERATION__ | __TYPE__ | __RETURN TYPE__ | __FUNCTIONAL INTERFACE REQUIRED__ | __FUNCTION DESCRIPTOR__ |
 |---------:|----:|-----------:|-----------------------------------:|--------------------:|
-|filter |
+|filter |Intermediate | Stream<T> | Predicate<T> | T -> boolean |
+|distinct |Intermediate | Stream<T> |           |               |
+|takeWhile| Intermediate |Stream<T> | Predicate<T>| T -> boolean|
+|dropWhile| Intermediate | Stream<T> | Predicate<T>| T -> boolean|
+|skip|intermediate|Stream<T>|long  |  |
+|limit|intermediate|Stream<T>|long | |
+|map|intermediate|Stream<R>|Function<T,R>|T -> R |
+|flatmap|intermediate|Stream<R>|Function<T,Stream<R>>|T -> Stream<R>|
+|Sorted|intermediate|Stream<T>|Comparator<T>|(T,T) -> int|
+|anyMatch|terminal|boolean|Predicate<T>|T -> boolean|
+|noneMatch|terminal|boolean|Predicate<T>| T -> boolean
+|allMatch|terminal|boolean|Predicate<T>| T -> boolean
+|findAny|terminal|Optional<T>| 
+|findFirst|terminal|Optional<T>|
+|forEach|terminal|void|Consumer<T>| T -> void
+|collect|terminal|R|Collector<T,A,R>|
+|reduce|terminal(stateful)|Optional<T>|BinaryOperator<T>|(T,T) -> T
