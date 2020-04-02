@@ -140,8 +140,27 @@ Takes Predicate as the input
 > Skipping a Stream "skip(n)"
 
 
+## Mapping a Stream
+map Method takes function as an arguement. 
+This function is __apply__ to each element of the stream, mapping it to new element 
+
+> stream().map(Function<T,R> mapper)
+>return Stream<R> 
+
+> Question: Given a list of words return list of number of characters in each word
+```java 
+import java.util.List;
+import java.util.ArrayList; 
+import java.util.Collectors;
+List<String> words = Arrays.asList("Modern","Java","in","action") 
+words.stream()
+    .map(String::length)
+    .collect(toList())
+```
+
 ## Flattening Streams
 Applying a Function to each element of the stream. <br>
+
 
 | __OPERATION__ | __TYPE__ | __RETURN TYPE__ | __FUNCTIONAL INTERFACE REQUIRED__ | __FUNCTION DESCRIPTOR__ |
 |---------:|----:|-----------:|-----------------------------------:|--------------------:|
@@ -162,3 +181,40 @@ Applying a Function to each element of the stream. <br>
 |forEach|terminal|void|Consumer<T>| T -> void
 |collect|terminal|R|Collector<T,A,R>|
 |reduce|terminal(stateful)|Optional<T>|BinaryOperator<T>|(T,T) -> T
+
+## FINDING AND MATCHING
+The Stream API provides additional facilites `allMatch` `anyMatch`
+`noneMatch` `findFirst` `findAny`
+>stream().allMatch(Predicate<? super T> predicate)
+>return boolean
+
+>stream().anyMatch(Predicate<? super T>)
+>return boolean
+
+>stream().noneMatch(Predicate<? super T>)
+>return boolean
+
+> Operations allMatch, anyMatch, noneMatch is what called short-circuiting  
+
+>stream().findFirst(Predicate<? super T>)
+>return boolean
+
+>stream().findAny(Predicate<? super T>)
+>return boolean
+
+> findAny and findFirst will return Optional<T>
+
+
+## Optional class
+-   The `Optional<T>` class __Java.util.Optional__
+> ifPresent() return true 
+> ifPresent(Consumer<T> block)
+> T get() 
+> T orElse(T)
+
+## REDUCING
+
+
+  
+    
+                 

@@ -7,6 +7,8 @@ import java.util.Optional;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.joining;
+
 public class TransactionTest {
     public static void main(String[] args) {
         Trader raoul = new Trader("Raoul", "Cambridge");
@@ -44,24 +46,35 @@ public class TransactionTest {
         System.out.println(k.get());
 
 
-   List<Integer> number = Arrays.asList(10,9,8263,81,23,123,18);
-   number.stream().mapToInt(t -> t).reduce(0,Integer::sum);
-   number.stream().mapToInt(t -> t).max();
+        List<Integer> list1 = Arrays.asList(10,9,8,7);
+        List<Integer> list2 = Arrays.asList(5,6,7,8);
+        list1.stream()
+               .flatMap(i -> list2.stream()
+               .map(j -> new int[]{i,j}))
+               .distinct()
+               .forEach(i -> System.out.println(Arrays.toString(i)));
 
 
+        List<Dish> SpecialMenu = Arrays.asList(
+                new Dish("seasonal fruit", true, 120, Dish.Type.OTHER),
+                new Dish("prawns", false, 300, Dish.Type.FISH),
+                new Dish("rice", true, 350, Dish.Type.OTHER),
+                new Dish("chicken", false, 400, Dish.Type.MEAT),
+                new Dish("french fries", true, 530, Dish.Type.OTHER));
+        boolean b = SpecialMenu.stream()
+                .anyMatch(t -> t.isVegetarian());
+
+        String traderStr =
+                transactions.stream()
+                        .map(transaction -> transaction.getTrader().getName())
+                        .distinct()
+                        .sorted()
+                        .collect(joining());
+
+        SpecialMenu.stream()
+                .mapToInt(t -> t.getCalories())
+                .sum();
 
 
-           
-
-
-
-
-
-
-
-
-
-      
-//
     }
 }
