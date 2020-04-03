@@ -212,7 +212,21 @@ The Stream API provides additional facilites `allMatch` `anyMatch`
 > T get() 
 > T orElse(T)
 
-## REDUCING
+## NUMERIC STREAMS
+> transaction.stream().map(Transaction::getValue).reduce(0,Integer::sum)
+
+Problem with this code is that there is a boxing cost. <br>
+Each Integer needs to be unboxed to premitive type before performing the
+summation <br>
+Stream<T> interface doesn't have sum() method defined in it. Imagine if the stream 
+has object of Dish, and we cannot sum them. 
+
+
+## NUMERIC RANGES
+
+> IntStream.rangeClosed(1,100).filter(n -> n%2 ==0);
+>
+
 
 
   

@@ -1,11 +1,15 @@
 package com.java.FunctionalJava;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.joining;
 
@@ -75,6 +79,18 @@ public class TransactionTest {
                 .mapToInt(t -> t.getCalories())
                 .sum();
 
+        transactions.stream()
+                .map(Transaction::getValue)
+                .max(Integer::compare);
+
+        transactions.stream()
+                .mapToInt(Transaction::getValue)
+                .max();
+        transactions.stream()
+                .map(Transaction::getValue)
+                .reduce((t1,t2) -> t1 > t2 ? t1 :t2);
+
+         transactions.stream().forEach(t -> System.out.println(t));
 
     }
 }
