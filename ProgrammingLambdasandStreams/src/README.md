@@ -1,3 +1,38 @@
+## Functional Programming
+> PurchaseList = ??? - list of food purchases with different categories 
+> Question: filter list where category == food
+
+> filter(hasCategoryFood, PurchaseList)
+> hasCategoryFood(purchase) = purchase.category == food
+
+## foldFromLeft and foldFromRight
+- folding is an reducing operation and terminal operation  
+- seeding value is substracted from first value  
+- The resultant value is subtracted from second value  
+>foldFromLeft(function,seedingvalue,List);
+>foldFromLeft(minus,0,[10,20,14,12,5])
+
+    <!--   0 - 10 = -10 -->
+    <!-- -10 - 20 = -30 -->
+    <!-- -30 - 14 = -44 -->
+    <!-- -44 - 12 = -56 -->
+    <!-- -56 - 5  = -61 -->
+    
+- folding from right takes the last element and apply's Binary operation with seeding value
+- Second value from last is applied on the resultant value
+>foldFromRight(function,seedingvalue,List);
+>foldFromRight(minus,0,[10,20,14,12,5])
+
+    <!--  5 - 0 = 5 -->
+    <!-- 12 - 5 = 7 -->
+    <!-- 14 - 7 = 7 -->
+    <!-- 20 - 7 = 13 -->
+    <!-- 10 - 13 = -3 -->
+
+    
+
+
+
 ## Expression & Statements blocks
 Expression consists of variable, operators and Literals. 
 ???

@@ -2,16 +2,19 @@ package com.java.FunctionalJava;
 
 import org.w3c.dom.ls.LSOutput;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.BinaryOperator;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.joining;
+
+interface BifuncT<T,U,R>{
+    R apply(T t, U u);
+}
+
 
 public class TransactionTest {
     public static void main(String[] args) {
@@ -91,6 +94,29 @@ public class TransactionTest {
                 .reduce((t1,t2) -> t1 > t2 ? t1 :t2);
 
          transactions.stream().forEach(t -> System.out.println(t));
+         transactions.stream().map(t -> t.getValue()> 500).forEach(t -> System.out.println(t));
+        Function<Integer,String> test = new Function<Integer, String>() {
+            @Override
+            public String apply(Integer integer) {
+                return integer.toString();
+            }
+        };
+        Function<Integer,String> test2;
+        test = (t -> t.toString());
+
+
+        List<Character> listcharacter;
+        listcharacter = List.of('a','c','d','e','f');
+
+        StringBuilder StringBuilders = listcharacter.stream()
+                .reduce(new StringBuilder(),
+                        (stringBuilder, obj) -> stringBuilder.append(obj),
+                        (stringBuilder1, s) -> stringBuilder1.append(s)
+                );
+        System.out.println(StringBuilders.toString());
+
+
+
 
     }
 }

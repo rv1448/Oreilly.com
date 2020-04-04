@@ -4,9 +4,8 @@ import javax.swing.plaf.ColorUIResource;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
-
-import static java.util.stream.Collectors.groupingBy;
 
 public class GroupingTransactionExchange {
     public static List<TransactionExchange> transactions = Arrays.asList(
@@ -27,9 +26,11 @@ public class GroupingTransactionExchange {
 
 
     public static void main(String[] args) {
-        Map<Currency,List<TransactionExchange>> list = transactions.stream()
-                .collect(groupingBy(TransactionExchange::getCurrency));
+        Map<Currency,List<TransactionExchange>> list;
+        list = transactions.stream()
+                .collect(Collectors.groupingBy(TransactionExchange::getCurrency));
         System.out.println(list);
+
 
     }
 
