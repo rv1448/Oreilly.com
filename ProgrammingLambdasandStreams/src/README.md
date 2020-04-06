@@ -30,7 +30,43 @@
     <!-- 10 - 13 = -3 -->
 
     
+## PURE FUNCTIONS 
+> print "BEFORE: "   
+> print x  
+-- BEFORE: 27 <br>
+> y = calculate() <br>
+> print "AFTER: " <br>
+> print y  <br>
+-- AFTER: 81
 
+- `Side Effect` occurs when evaluating an expression interacts with something 
+    other than the expression itself.
+- A pure function has no side effects.
+    - The function doesn't use any value outside of it other than to take parameters
+    - The function doesn't change any values outside of it other than to return a result
+    - Pure function doesn't print to external environments
+- `Referential transparant` A expression in referentially transparent if you can substritute
+    expression value with the expression itself, and not change the meaning of the program.       
+> print(getRandom()+getRandom()) 1 + 6 <br>
+> x = getRandom() <br>
+> print(x+x)  <> 7 <br>
+
+## IMMUTABILITY 
+
+- Imperative style to sum 
+
+>total = 0 <br>
+>for each purchase in purchaseList: <br> 
+>   if purchase.category == food <br>
+>       total = total +purchase.amount --> this is mutable variable :(  <br>
+>print total <br>
+
+- Functional Style to Sum
+>print(sum(map(getAmount,filter(Lambda purchase -> (purchase.category==food),purchaseList))))
+* EVERY FUNCTION RETURNS A NEW list and final SUM returns new Value
+                                                                                                                                                                                                  
+
+ 
 
 
 ## Expression & Statements blocks
