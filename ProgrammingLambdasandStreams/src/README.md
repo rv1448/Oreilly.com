@@ -294,10 +294,77 @@ has object of Dish, and we cannot sum them.
 
 
 ## NUMERIC RANGES
-
 > IntStream.rangeClosed(1,100).filter(n -> n%2 ==0);
->
 
+
+## COLLECTING DATA WITH STREAMS
+- Creating and Using `Collectors` class
+    - Collect is a terminal operation like reduce operation
+    - Collector is a new Interface 
+    - collect() method takes Collector 
+- Reducing stream to a single value
+- Summerization as a special case of reduction
+- Grouping and partitioning data 
+- Developing OWN custom collectors 
+    
+## COLLECTORS FACTORY CLASS
+
+> Collectors is an Implementation of Collector interface
+> Collect takes a Collector and Collectors and most implementations out of the box
+> Collect triggers a reduction on the Streams 
+> Arguements passed to the collect method is implementation of Collector interface
+> COllector applies a transformation function. Quite often its a identity transformation
+>
+```java
+- Instance of Transaction Exchange Class 
+TransactionExchange t = new TransactionExchange(Currency.EUR, 1500.0);
+// transactions is a List of TransactionExchange
+
+- imperative style of programming
+
+Map<Currency, List<Double>> groupbyCurrency= new HashMap<>());
+for(TransactionExchange e: transactions)
+{
+    groupbyCurrency.getOrDefault(t.getCurrency(),new ArrayList()).add(e.getValue())
+}
+
+- FunctionalStyle
+transactions.stream()
+            .collect(Collectors.groupingBy(TransactionExchange::getCurrency))
+
+```
+## PREDEFINED COLLECTORS
+
+#### COLLECTORS class
+- Reducing and Summerizing stream elements to a single value 
+- Grouping Elements 
+- Partitioning Elements
+
+1) REDUCING AND SUMMARIZING
+
+> transaction.stream().collect(Collectors.counting())
+
+> `<T> static Collector<T,?,Long count()
+  {return summinglong(e -> 1L)}`
+<pre>
+public static <T> Collector<T, ?, Long>
+     summingLong(ToLongFunction<? super T> mapper) {
+         return new CollectorImpl<>(
+                 () -> new long[1], -- supplier
+                 (a, t) -> { a[0] += mapper.applyAsLong(t); }, --accumulator
+                 (a, b) -> { a[0] += b[0]; return a; }, combiner
+                 a -> a[0],  finisher 
+                CH_NOID); characteristics
+</pre>
+<pre>
+CollectorImpl(Supplier<A> supplier,
+                       BiConsumer<A, T> accumulator,
+                       BinaryOperator<A> combiner,
+                       Function<A,R> finisher,
+                       Set<Characteristics> characteristics)
+</pre>
+
+ 
 
 
   

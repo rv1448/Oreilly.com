@@ -1,9 +1,7 @@
 package com.java.FunctionalJava;
 
 import javax.swing.plaf.ColorUIResource;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -29,9 +27,38 @@ public class GroupingTransactionExchange {
         Map<Currency,List<TransactionExchange>> list;
         list = transactions.stream()
                 .collect(Collectors.groupingBy(TransactionExchange::getCurrency));
-        System.out.println(list);
+//        System.out.println(list);
 
+        transactions.stream()
+                .filter(t -> t.getCurrency().equals(Currency.EUR))
+                .collect(Collectors.counting()) ;
+        System.out.println(transactions);
 
+        Map<Currency,List<Double>> groupbyCurrency = new HashMap<>();
+
+        for(TransactionExchange t: transactions){
+           Currency c =  t.getCurrency();
+           if(groupbyCurrency.containsKey(c)){
+               groupbyCurrency.get(c).add(t.getValue());
+           }
+           else
+           {
+               List<Double> value = new ArrayList<>();
+               value.add(t.getValue());
+               groupbyCurrency.put(c,value);
+           }
+        }
+
+        for(TransactionExchange t: transactions){
+            Currency c = t.getCurrency();
+            List<Double> value = groupbyCurrency.getOrDefault(c,new ArrayList<>());
+            value.add(t.getValue());
+            groupbyCurrency.put(c,value);
+        }
+
+        System.out.println(groupbyCurrency);
+            transactions.stream().collect(Collectors.toList());
+            transactions.stream().collect(Collectors.counting());
     }
 
 }
