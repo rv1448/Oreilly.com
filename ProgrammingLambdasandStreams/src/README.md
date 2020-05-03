@@ -373,10 +373,17 @@ CollectorImpl(Supplier<A> supplier,
 Three main functionality of the collectors class
 
 - Reducing and summerizing the stream to a single element
-> collectors.counting
-> Collectors.maxBy()
-> Collectors.minBy()
-
+ - Reducing
+    > collectors.counting
+    > Collectors.maxBy()
+    > Collectors.minBy()
+ - Summarizing
+    > collectors.summingint()
+    > collectors.summarizingint()
+ - reducing 
+    > 
+    >
+    >
 - Grouping elements
 - Partioning elements
 

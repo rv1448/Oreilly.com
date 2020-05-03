@@ -64,7 +64,8 @@ public class DishTest {
                 .forEach(t ->out.println(t[0]+" "+t[1]) );
         BinaryOperator<Integer> biop = (integer, integer2) -> Integer.sum(integer,integer2);
 
-        SpecialMenu.stream().max(Comparator.comparing(Dish::getCalories));
+        out.println(SpecialMenu.stream().map(t -> t.getName()).collect(Collectors.joining("|")));
+        out.println(SpecialMenu.stream().map(Dish::getCalories).reduce(0,(t1,t2) -> t1+t2).getClass());
 
     }
 }
