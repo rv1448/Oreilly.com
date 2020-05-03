@@ -344,25 +344,42 @@ transactions.stream()
 
 > transaction.stream().collect(Collectors.counting())
 
-> `<T> static Collector<T,?,Long count()
-  {return summinglong(e -> 1L)}`
-<pre>
-public static <T> Collector<T, ?, Long>
-     summingLong(ToLongFunction<? super T> mapper) {
+``` java 
+<T> static Collector<T,?,Long> count() 
+{return summinglong(e -> 1L)}
+``` 
+ 
+``` java
+    public static <T> Collector<T, ?, Long> 
+     summingLong(ToLongFunction<? super T> mapper) { 
          return new CollectorImpl<>(
-                 () -> new long[1], -- supplier
+                 () -> new long[1], -- supplier 
                  (a, t) -> { a[0] += mapper.applyAsLong(t); }, --accumulator
                  (a, b) -> { a[0] += b[0]; return a; }, combiner
-                 a -> a[0],  finisher 
-                CH_NOID); characteristics
-</pre>
-<pre>
+                 a -> a[0],  --finisher 
+                CH_NOID); --characteristics
+```
+> if a stream is processed parallel, then different threads (accumulators) will produce
+>partial results containers. In the end, these paritial results must be merged in a single one. 
+>This is exactly combiner does. 
+``` java
 CollectorImpl(Supplier<A> supplier,
                        BiConsumer<A, T> accumulator,
                        BinaryOperator<A> combiner,
                        Function<A,R> finisher,
                        Set<Characteristics> characteristics)
-</pre>
+``` 
+#### PREDEFINED COLLECTORS
+Three main functionality of the collectors class
+
+- Reducing and summerizing the stream to a single element
+> collectors.counting
+> Collectors.maxBy()
+> Collectors.minBy()
+
+- Grouping elements
+- Partioning elements
+
 
  
 

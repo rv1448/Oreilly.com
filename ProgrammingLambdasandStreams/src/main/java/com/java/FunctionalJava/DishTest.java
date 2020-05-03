@@ -3,6 +3,7 @@ package com.java.FunctionalJava;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
@@ -63,9 +64,7 @@ public class DishTest {
                 .forEach(t ->out.println(t[0]+" "+t[1]) );
         BinaryOperator<Integer> biop = (integer, integer2) -> Integer.sum(integer,integer2);
 
-        a1.stream()
-                .mapToInt(t -> t)
-                .sum();
+        SpecialMenu.stream().max(Comparator.comparing(Dish::getCalories));
 
     }
 }
