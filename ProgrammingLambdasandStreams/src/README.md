@@ -387,6 +387,19 @@ Three main functionality of the collectors class
 - Grouping elements
 - Partioning elements
 
+#### COLLECT VS REDUCE
+
+- Using reduce to collect stream into list has two problems 
+` Reduce method is meant to combine two elements and produce a new one `
+- It is a immutable reduction 
+
+- Collect method is designed to mutate a container to accumilate the result to produce
+its suppose to produce.
+- So the example where reduce is used to collect the elements is misusing it
+- using reduce method with wrong schemantic is also cause of the problem
+- this reduction process can't work in parallel because of concurrent modification
+
+
 
  
 
