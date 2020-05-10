@@ -1,3 +1,80 @@
+## TYPE INFERENCE
+- TYPE inference is a java compiler ability to look at each method invocation and corresponding declaration to determine the type arguments(or arguments) and make the invocation applicable.
+
+- The inference algorithm determines the types of the arguments, if available, the type that the result is being assigned or returned. Finally, the interface algorithm tries to find the most specific type that works with all of the arugments
+``` java
+static <T> T pick(T a1, T a2){ return a2;}
+Serizable s = pick("",new ArrayList<String>());
+```
+#### Type Inference and Generic Methods
+- Generic methods introduced you to type inference, which enables you to invoke a generic method as you would an ordinary method, with out specifying a type between angle brackets.
+
+``` java
+public class BoxDemo {
+
+  public static <U> void addBox(U u, 
+      java.util.List<Box<U>> boxes) {
+    Box<U> box = new Box<>();
+    box.set(u);
+    boxes.add(box);
+  }
+
+  public static <U> void outputBoxes(java.util.List<Box<U>> boxes) {
+    int counter = 0;
+    for (Box<U> box: boxes) {
+      U boxContents = box.get();
+      System.out.println("Box #" + counter + " contains [" +
+             boxContents.toString() + "]");
+      counter++;
+    }
+  }
+
+  public static void main(String[] args) {
+    java.util.ArrayList<Box<Integer>> listOfIntegerBoxes =
+      new java.util.ArrayList<>();
+    BoxDemo.<Integer>addBox(Integer.valueOf(10), listOfIntegerBoxes);
+    BoxDemo.addBox(Integer.valueOf(20), listOfIntegerBoxes);
+    BoxDemo.addBox(Integer.valueOf(30), listOfIntegerBoxes);
+    BoxDemo.outputBoxes(listOfIntegerBoxes);
+  }
+}
+
+BoxDemo.add(Integer.valueOf(10),listofIntegerBoxes)
+
+```
+#### Upper Bounded WildCards
+
+- Say you want to write a method that puts integer objects to a list. Anything that can hold integer values
+- To maximize flexibility, you would like the method to work on 
+List<Integer>, List<Number>, List<Object> 
+
+``` java
+public static void addNumbers(List<? super Integer> list) {
+    for (int i = 1; i <= 10; i++) {
+        list.add(i);
+    }
+}
+```
+> Integer values can be added to List<Integer>, List<Number>, List<Object> . All three list types can be passed to the reference List<? super Integer>
+
+
+## WildCard Capture and Helper Methods
+- In some cases, the compiler infers the type of a wild card. 
+- For example, a list may be defined as List<?> but, when evaluating an expression, the compiler infers a particular type from thecode
+``` java
+import java.util.List;
+
+public class WildcardError {
+
+    void foo(List<?> i) {
+        i.set(0, i.get(0));
+    }
+}
+```
+- in this example, the compiler processes the i input parameter as being of type Object. when foo method invokes List.set(int,E), 
+the compiler is not able to confirm the type of object that is begin inserted in  the list
+
+
 ## Functional Programming
 > PurchaseList = ??? - list of food purchases with different categories 
 > Question: filter list where category == food
@@ -17,7 +94,7 @@
     <!-- -30 - 14 = -44 -->
     <!-- -44 - 12 = -56 -->
     <!-- -56 - 5  = -61 -->
-    
+
 - folding from right takes the last element and apply's Binary operation with seeding value
 - Second value from last is applied on the resultant value
 >foldFromRight(function,seedingvalue,List);
@@ -29,10 +106,9 @@
     <!-- 20 - 7 = 13 -->
     <!-- 10 - 13 = -3 -->
 
-    
-## PURE FUNCTIONS 
-> print "BEFORE: "   
-> print x  
+## PURE FUNCTIONS
+> print "BEFORE:
+> print x
 -- BEFORE: 27 <br>
 > y = calculate() <br>
 > print "AFTER: " <br>
