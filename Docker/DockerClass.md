@@ -1,3 +1,22 @@
+## CONTAINER COMMANDS
+
+> docker run [options] [name]
+> docker run -d alpine
+
+- Inspect the container information and get a JSON response
+> docker inspect <friendlyname|container-id>
+> docker inspect 3d82b110ecab
+
+- Get the logs from the docker container
+> docker logs <friendly-name|container-id>
+> docker logs 3d82b110ecab
+
+- Get the port of the container that's exposing the service
+> docker port <container-id> || docker port <friendly-name>
+> docker port redd || docker port 187de6ba5880
+
+
+
 ## Container
 	- Image will produce same container
 	- Container is a running instance of a image

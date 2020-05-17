@@ -19,7 +19,9 @@ public class UseAList {
     public static void addToList(List l){
         l.add(0, LocalDate.now());
     }
-
+    public static void listtest(List<String> lo){
+        return;
+    }
     public static void main(String[] args) {
         List<String> names = new ArrayList();
         names = Collections.checkedList(names, String.class);
@@ -40,5 +42,10 @@ public class UseAList {
         System.out.println(clazz.getName());
         System.out.println(clazz);
         System.out.println(clazz== clazz1);
+        List<Object> lo = new ArrayList<>();
+        List<String> ls = new ArrayList<>();
+        ArrayList<Integer> alist = new ArrayList<>();
+        List<?> lk = new ArrayList<>();
+
     }
 }
