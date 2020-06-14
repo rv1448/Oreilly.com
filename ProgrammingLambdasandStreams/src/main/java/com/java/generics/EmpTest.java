@@ -1,6 +1,7 @@
 package com.java.generics;
 
 import java.util.*;
+import java.util.function.Function;
 
 public class EmpTest {
     public static List<Employee> getEmployees(){
@@ -28,6 +29,17 @@ public class EmpTest {
                     }
                 }
         );
+        Function<Employee,Double> m = t -> t.getSalary();
+        Function<Object,String> m2 = new Function<Object, String>() {
+            @Override
+            public String apply(Object employee) {
+                return employee.toString();
+            }
+        };
+
+        Comparator<Employee> comp = Comparator.comparing(m).reversed();
+        Comparator<Object> comp2 = Comparator.comparing(m2).reversed();
+        System.out.println(employees.stream().max(comp));
 
         employees.stream().max(new Comparator<Object>() {
             @Override
