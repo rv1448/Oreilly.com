@@ -118,3 +118,4 @@ target/maven-status/
 target/surefire-reports/
 *.iml
 */target/*
+*/.gitignore
