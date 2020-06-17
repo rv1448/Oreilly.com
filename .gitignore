@@ -117,3 +117,4 @@ target/generated-test-sources/
 target/maven-status/
 target/surefire-reports/
 *.iml
+*/target/*
