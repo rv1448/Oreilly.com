@@ -111,7 +111,6 @@ fabric.properties
 .idea/vcs.xml
 futures.iml
 pom.xml
-src/
 target/generated-sources/
 target/generated-test-sources/
 target/maven-status/
