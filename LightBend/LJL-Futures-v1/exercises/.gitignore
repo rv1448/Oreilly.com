@@ -109,10 +109,11 @@ fabric.properties
 .idea/modules.xml
 .idea/sbt.xml
 .idea/vcs.xml
-futures.iml
+#futures.iml
 pom.xml
 target/generated-sources/
 target/generated-test-sources/
 target/maven-status/
 target/surefire-reports/
+*.iml
 
