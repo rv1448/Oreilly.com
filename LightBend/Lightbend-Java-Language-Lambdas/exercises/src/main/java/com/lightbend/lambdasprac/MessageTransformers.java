@@ -8,26 +8,9 @@ import java.util.stream.Collectors;
 public class MessageTransformers {
 
 
-    static  MessageTransformer<Instant> toTimestamp = new MessageTransformer() {
-        @Override
-        public Instant apply(Message message) {
-            return message.getTimestamp();
-        }
-    };
-
-    static MessageTransformer<String> toString = new MessageTransformer<String>() {
-        @Override
-        public String apply(Message message) {
-            return message.toString();
-        }
-    };
-
-    static MessageTransformer<Message> toUpper = new MessageTransformer<Message>() {
-        @Override
-        public Message apply(Message message) {
-            return new Message(message.getId(),message.getTimestamp(),message.getContent().toUpperCase());
-        }
-    };
+    static  MessageTransformer<Instant> toTimestamp = Message::getTimestamp;
+    static MessageTransformer<String> toString = Message::toString;
+    static MessageTransformer<Message> toUpper = message -> new Message(message.getId(),message.getTimestamp(),message.getContent().toUpperCase());
 
 
     static <T> List<T> mapMessage(List<Message> list, MessageTransformer<T> transformer){

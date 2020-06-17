@@ -1,5 +1,6 @@
 package com.lightbend.lambdasprac;
 
+
 import java.util.function.Function;
 
 public class App {
@@ -13,6 +14,10 @@ public class App {
 
         Function<String, Integer> func1 = (String s) -> Integer.parseInt(s);
         Function<String, Integer> func2 = (String s) -> { return  Integer.parseInt(s);};
+
+        Runnable task1 = () -> {
+            System.out.println(10);
+        };
 
     }
 }

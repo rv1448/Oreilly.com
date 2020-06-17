@@ -34,7 +34,27 @@ void run();
   * BiFunction<T,U,R> -- Represents a function that accepts two arguments and produces a result
     *apply(T t, U u)
 
+#### Lambda Functions
+- Example of functional interface
+``` java
+@Functionalinterface
+interface MyInterface {
+ReturnType methodname(Functionparameters){
+Functionbody
+}
+}
+```
+- They are defined in the form
+`ReturnType value = (FunctionParameters) -> {Function Body}`
 
+## Common use of Lambdas
+
+  * `java.util.stream.Stream`
+    * .map - Applies a Function<T, R> to convert stream<T> to a Stream<R>
+    * .filter - Applies a Predicate<T> to filter out any elements that don't
+  * `java.util.concurrent.CompletableFuture`
+    * .thenApply uses a callback Function<T,R> to convert a CompletableFuture<T> to CompletableFuture<R>
+    * .thenAccept uses a callback Consumer<T> to consume the value of the Future when it completes
 
 
 **SPECIAL NOTES**
