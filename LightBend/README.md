@@ -47,7 +47,7 @@ Functionbody
 - They are defined in the form
 `ReturnType value = (FunctionParameters) -> {Function Body}`
 
-## Common use of Lambdas
+#### Common use of Lambdas
 
   * `java.util.stream.Stream`
     * .map - Applies a Function<T, R> to convert stream<T> to a Stream<R>
@@ -55,6 +55,20 @@ Functionbody
   * `java.util.concurrent.CompletableFuture`
     * .thenApply uses a callback Function<T,R> to convert a CompletableFuture<T> to CompletableFuture<R>
     * .thenAccept uses a callback Consumer<T> to consume the value of the Future when it completes
+
+
+
+## Futures
+
+#### What is Covered ?
+  * This course covers:
+    * Blocking Calls
+    * Futures
+    * Transforming Futures
+    * Executors
+
+  - Blocking Calls
+  - 
 
 
 **SPECIAL NOTES**
