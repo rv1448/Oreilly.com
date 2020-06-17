@@ -15,6 +15,7 @@ public class Customer implements Serializable {
     private final String lastName;
     private final String address;
     private final String phoneNumber;
+
     UUID getId() {
         return id;
     }
