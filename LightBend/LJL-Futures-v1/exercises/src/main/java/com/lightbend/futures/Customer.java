@@ -47,6 +47,15 @@ public class Customer implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
+
+    Customer(
+            String firstName,
+             String lastName,
+             String address,
+             String phoneNumber)
+    {
+        this(UUID.randomUUID(), firstName, lastName, address, phoneNumber);
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -3,7 +3,7 @@ package com.lightbend.futures_test;
 import java.util.*;
 
 public class RepositoryServiceImpl implements RepositoryService {
-    private static final Map<UUID, Customer> repo = RelationDataStoreHashMap.getrepo();
+    private static final Map<UUID, Customer> repo = RelationStoreHashMap.getrepo();
 
 
     @Override

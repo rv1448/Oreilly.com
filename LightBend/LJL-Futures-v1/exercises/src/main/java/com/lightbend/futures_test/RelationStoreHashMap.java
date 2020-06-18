@@ -4,14 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class RelationDataStoreHashMap implements RelationDataStore {
+public class RelationStoreHashMap implements RelationStore {
     private static  Map<UUID, Customer> hashmap;
-    private RelationDataStoreHashMap(){
+    private RelationStoreHashMap(){
         hashmap = new HashMap<UUID, Customer>();
     }
 
     public static Map<UUID, Customer> getrepo(){
-        if(hashmap == null) {new RelationDataStoreHashMap();}
+        if(hashmap == null) {new RelationStoreHashMap();}
        return  hashmap;
     }
 }
