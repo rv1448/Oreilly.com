@@ -49,10 +49,10 @@ Functionbody
 
 #### Common use of Lambdas
 
-  * `java.util.stream.Stream`
+    * `java.util.stream.Stream`
     * .map - Applies a Function<T, R> to convert stream<T> to a Stream<R>
     * .filter - Applies a Predicate<T> to filter out any elements that don't
-  * `java.util.concurrent.CompletableFuture`
+    * `java.util.concurrent.CompletableFuture`
     * .thenApply uses a callback Function<T,R> to convert a CompletableFuture<T> to CompletableFuture<R>
     * .thenAccept uses a callback Consumer<T> to consume the value of the Future when it completes
 
@@ -66,9 +66,34 @@ Functionbody
     * Futures
     * Transforming Futures
     * Executors
+  - Blocking is inevitable in most systems
+  - To maintain performance and scalability we can isolate blocking operations
+  - Futures allow us to isolate blocking operations to a seperate thread
+  - Execution of the main thread continues uninterrupted
+  - The result of the future is handled through a `callback`
+  - __Futures represent the promise of a value__
 
-  - Blocking Calls
-  - 
+```
+====Main Thread===
+=======Exec=======
+==================
+==================
+=Future(Blocking)=   ->   new Thread  ->   Thread2
+====Exec Cont..===                     ====Blocking===
+====Exec Cont..===                     ====Blocking===
+====Exec Cont..===                     ====Blocking===
+====Exec Cont..===                            |
+====Exec Cont..===                     new Thread3
+====Exec Cont..===                     ===Call back===
+```
+
+## What is CompletableFuture ??
+  - CompletableFuture is used for asynchronous programming in Java. Asynchronous programming is a means of
+    writing non-blocking code by running a task on a Seperate thread than the main application thread and
+    notifying the main thread about its progress, Completion or Failure.
+** CompletableFuture implements two interfaces
+  - Future
+  - CompletionStage
 
 
 **SPECIAL NOTES**
