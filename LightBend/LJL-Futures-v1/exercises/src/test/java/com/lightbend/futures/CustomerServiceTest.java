@@ -6,6 +6,7 @@ import org.mockito.ArgumentCaptor;
 
 import java.util.Optional;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -27,13 +28,14 @@ class CustomerServiceTest {
         ArgumentCaptor<Customer> captor = ArgumentCaptor.forClass(Customer.class);
 
         Customer expectedCustomer = TestHelpers.generateCustomer();
+        when(customerRepo.saveCustomer(any())).thenReturn(CompletableFuture.completedFuture(null));
 
         UUID customerId = customerService.addCustomer(
                 expectedCustomer.getFirstName(),
                 expectedCustomer.getLastName(),
                 expectedCustomer.getAddress(),
                 expectedCustomer.getPhoneNumber()
-        );
+        ).join();
 
         verify(customerRepo).saveCustomer(captor.capture());
 
@@ -50,9 +52,9 @@ class CustomerServiceTest {
     void getCustomerFirstName_shouldExtractTheFirstNameFromTheCustomer() {
         Customer customer = TestHelpers.generateCustomer();
 
-        when(customerRepo.getCustomer(customer.getId())).thenReturn(Optional.of(customer));
+        when(customerRepo.getCustomer(customer.getId())).thenReturn(CompletableFuture.completedFuture(Optional.of(customer)));
 
-        Optional<String> result = customerService.getCustomerFirstName(customer.getId());
+        Optional<String> result = customerService.getCustomerFirstName(customer.getId()).join();
 
         assertTrue(result.isPresent());
         assertEquals(customer.getFirstName(), result.get());
@@ -62,9 +64,9 @@ class CustomerServiceTest {
     void getCustomerLastName_shouldExtractTheLastNameFromTheCustomer() {
         Customer customer = TestHelpers.generateCustomer();
 
-        when(customerRepo.getCustomer(customer.getId())).thenReturn(Optional.of(customer));
+        when(customerRepo.getCustomer(customer.getId())).thenReturn(CompletableFuture.completedFuture(Optional.of(customer)));
 
-        Optional<String> result = customerService.getCustomerLastName(customer.getId());
+        Optional<String> result = customerService.getCustomerLastName(customer.getId()).join();
 
         assertTrue(result.isPresent());
         assertEquals(customer.getLastName(), result.get());
@@ -74,9 +76,9 @@ class CustomerServiceTest {
     void getCustomerAddress_shouldExtractTheAddressFromTheCustomer() {
         Customer customer = TestHelpers.generateCustomer();
 
-        when(customerRepo.getCustomer(customer.getId())).thenReturn(Optional.of(customer));
+        when(customerRepo.getCustomer(customer.getId())).thenReturn(CompletableFuture.completedFuture(Optional.of(customer)));
 
-        Optional<String> result = customerService.getCustomerAddress(customer.getId());
+        Optional<String> result = customerService.getCustomerAddress(customer.getId()).join();
 
         assertTrue(result.isPresent());
         assertEquals(customer.getAddress(), result.get());
@@ -86,9 +88,9 @@ class CustomerServiceTest {
     void getCustomerPhoneNumber_shouldExtractThePhoneNumberFromTheCustomer() {
         Customer customer = TestHelpers.generateCustomer();
 
-        when(customerRepo.getCustomer(customer.getId())).thenReturn(Optional.of(customer));
+        when(customerRepo.getCustomer(customer.getId())).thenReturn(CompletableFuture.completedFuture(Optional.of(customer)));
 
-        Optional<String> result = customerService.getCustomerPhoneNumber(customer.getId());
+        Optional<String> result = customerService.getCustomerPhoneNumber(customer.getId()).join();
 
         assertTrue(result.isPresent());
         assertEquals(customer.getPhoneNumber(), result.get());

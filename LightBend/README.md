@@ -95,6 +95,35 @@ Functionbody
   - Future
   - CompletionStage
 
+  - in java promise of a value is represented by a CompletableFuture
+  - CompletableFuture is an implementation of CompletionStage
+
+## Creating a Completed Future
+``` java
+CompletableFuture<Order> futureorder = CompletableFuture.completedFuture(new Order())
+
+```
+
+## Creating a Eventually Completed Future
+  - We often need to transform, or process the result of the failure
+  - Instead of waiting for it to complete, A completableFuture can be transformed using .thenApply
+  - If the original Future completed with an Exception, then the transformed future will complete with same exception
+``` java
+CompletableFuture<Order> futureOrder = CompletableFuture.supplyAsync(() -> {
+          new Order();
+          };
+
+Order order1 = futureOrder.get();
+Order order2 = futureOrder.join();
+```
+
+
+## Transforming Futures
+
+``` java
+
+CompletableFuture<String> futureString = futureOrder.thenApply(order -> order.toString());
+```
 
 **SPECIAL NOTES**
 - Difference between Instant and LocalTime
