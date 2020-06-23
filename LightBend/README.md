@@ -125,5 +125,12 @@ Order order2 = futureOrder.join();
 CompletableFuture<String> futureString = futureOrder.thenApply(order -> order.toString());
 ```
 
+## Executors
+
+  - Futures are executed in a seperated thread or Thread pool
+  - Management of these threads is handled by an Executor or ExecutorService
+
+
+
 **SPECIAL NOTES**
 - Difference between Instant and LocalTime
