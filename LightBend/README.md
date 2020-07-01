@@ -130,7 +130,39 @@ CompletableFuture<String> futureString = futureOrder.thenApply(order -> order.to
   - Futures are executed in a seperated thread or Thread pool
   - Management of these threads is handled by an Executor or ExecutorService
 
+## DOMAIN DRIVEN DESIGN
 
+#### WHAT IS A DOMAIN ??
+
+- A domain is a sphere of knowledge
+- in the context of software, it refers to the business or the idea that we are  modelling
+- "MODEL" represents our understanding of the domain
+- Software is the implementation of the model
+-  refers to a business or idea that we are trying to model
+
+#### Decomposing the Domain
+
+## SUBJECT VERB OBJECT NOTATION
+
+```HOST CHECKS CURRENT RESERVATIONS```
+Subject: HOST
+Verb: CHECKS - ACTION
+Object: RESERVATIONS 
+
+
+## DOMAIN ACTIVITIES
+
+COMMAND
+EVENT
+  - Events are another activity in the domain
+  - They represent an action that happended in the past
+  - event is the result of the command
+  - BILL WAS PAYED vs PAY THE BILL
+QUERIES
+  - request for the information
+  - They should not the alter state of the domain
+
+In Reactive Systems Commands, Events, Queries are events
 
 **SPECIAL NOTES**
 - Difference between Instant and LocalTime
