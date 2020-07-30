@@ -1,3 +1,5 @@
+package com.pluralsight
+
 object Interest extends App{
 
   def interest(p:Double,i:Double,r:Double):Double = p*i*r

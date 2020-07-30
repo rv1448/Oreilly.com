@@ -1,3 +1,5 @@
+package com.pluralsight
+
 object Demo extends App{
 
    case  class Amount(val amount:Double, val currency:String);

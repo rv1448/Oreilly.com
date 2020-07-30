@@ -1,3 +1,5 @@
+package com.pluralsight
+
 object SumTypes extends App {
 
   sealed trait TaskStatus

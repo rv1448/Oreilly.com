@@ -1,5 +1,8 @@
+package com.pluralsight
+
 object FileTrait extends App{
   import java.io.File
+
   import scala.io.Source
   trait  Fileops{
     self: File =>
