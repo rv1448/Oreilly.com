@@ -20,3 +20,13 @@
 * Cut the Field
     - cut -f 1 -d : 
     - curt by field and field number and delimiter
+
+
+## Arrays
+	- declare -a to see all the arrays 
+	- echo $BASH_VERSINFO[0] will not print the first element
+	- echo ${BASH_VERSINFO[0]} everything in the flower bracket is seen as an variable
+	
+
+## ReadOnly
+	- readonly env="prod"
